@@ -1,0 +1,9 @@
+google-api-python-client
+python-dotenv
+pandas
+nltk
+transformers
+torch
+bertopic
+matplotlib
+seaborn
