@@ -2,6 +2,7 @@ google-api-python-client
 python-dotenv
 pandas
 nltk
+langdetect
 transformers
 torch
 bertopic
