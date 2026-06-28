@@ -19,13 +19,23 @@ import os
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-
+from langdetect import detect, LangDetectException
  
 nltk.download("punkt", quiet=True)
 nltk.download("punkt_tab", quiet=True)
 nltk.download("stopwords", quiet=True)
 
 STOPWORDS = set(stopwords.words("english"))
+
+def is_english(text: str) -> bool:
+    """Filter to English-only comments, since the sentiment model is English-only."""
+    if not isinstance(text, str) or len(text.strip()) < 3:
+        return False
+    try:
+        return detect(text) == 'en'
+    except LangDetectException:
+        return False
+
 
 def basic_clean(text: str) -> str:
     """ Light cleaning: use this version is used for Topic Modeling"""
@@ -64,6 +74,8 @@ def preprocessed(df : pd.DataFrame) -> pd.DataFrame:
     df = df[df['comment_text'].str.len() > 10]              # drop very short noise comments
 
     df['clean_text'] = df['comment_text'].apply(basic_clean)
+
+    df = df[df['clean_text'].apply(is_english)]
     df['tokens']     = df['clean_text'].apply(tokenize_and_remove_stopwords)
     df['token_count']= df['tokens'].apply(len)
 
