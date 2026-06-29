@@ -102,6 +102,3 @@ if __name__ == "__main__":
     cleaned.to_csv(out_path, index=False)
     print(f"Cleaned {len(raw)} -> {len(cleaned)} comments, Saved to {out_path}")
 
-
-# Output :
-# Cleaned 10000 -> 4343 comments, Saved to C:Desktop\GTA6\src\..\data\cleaned_comments.csv
