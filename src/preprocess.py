@@ -44,7 +44,7 @@ def basic_clean(text: str) -> str:
     text = text.lower()
     text = re.sub(r"http\S+|wwww\.\S+", " ", text) # Remove  URLs
     text = re.sub(r"\[.*?\]\(.*?\)", " ", text)    # Remove markdoen links
-    text = re.sub(r"^a-z0-9\s.,!?']", " ", text)   # Keep Basic information
+    text = re.sub(r"[^a-z0-9\s.,!?']", " ", text)   # Keep Basic information
     text = re.sub(r"\s+", " ", text).strip()
 
     return text
