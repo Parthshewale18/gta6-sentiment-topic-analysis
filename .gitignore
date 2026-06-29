@@ -18,8 +18,5 @@ data/*.png
 # Jupyter
 .ipynb_checkpoints/
 
-# OS / editor
-.DS_Store
-Thumbs.db
+# editor
 .vscode/
-.idea/
