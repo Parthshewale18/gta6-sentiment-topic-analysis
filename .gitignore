@@ -18,5 +18,3 @@ data/*.png
 # Jupyter
 .ipynb_checkpoints/
 
-# editor
-.vscode/
