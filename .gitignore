@@ -8,7 +8,6 @@ __pycache__/
 .venv/
 venv/
 env/
-*.egg-info/
 
 # Data outputs (large/regeneratable)
 data/*.csv
